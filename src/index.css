@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 271 76% 53%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 174 72% 56%;
+    --accent-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 217 91% 60%;
+
+    --radius: 1rem;
+
+    --neon-blue: 217 91% 60%;
+    --neon-purple: 271 76% 53%;
+    --neon-cyan: 174 72% 56%;
+    
+    --glow-blue: 217 91% 60% / 0.5;
+    --glow-purple: 271 76% 53% / 0.5;
+    --glow-cyan: 174 72% 56% / 0.5;
+
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .glow-blue {
+    box-shadow: 0 0 20px hsl(var(--glow-blue)), 0 0 40px hsl(var(--glow-blue));
+  }
+  
+  .glow-purple {
+    box-shadow: 0 0 20px hsl(var(--glow-purple)), 0 0 40px hsl(var(--glow-purple));
+  }
+  
+  .glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--glow-cyan)), 0 0 40px hsl(var(--glow-cyan));
+  }
+
+  .glass-card {
+    background: hsl(var(--glass-bg));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(10px);
+  }
+
+  .neon-border-blue {
+    border: 2px solid hsl(var(--neon-blue));
+    box-shadow: 0 0 15px hsl(var(--glow-blue));
+  }
+
+  .neon-border-purple {
+    border: 2px solid hsl(var(--neon-purple));
+    box-shadow: 0 0 15px hsl(var(--glow-purple));
+  }
+
+  .neon-border-cyan {
+    border: 2px solid hsl(var(--neon-cyan));
+    box-shadow: 0 0 15px hsl(var(--glow-cyan));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Print Styles for Resume */
+@media print {
+  @page {
+    margin: 0.5in;
+    size: letter;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .print\:hidden {
+    display: none !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+}
